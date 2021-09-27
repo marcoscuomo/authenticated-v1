@@ -6,13 +6,17 @@ import {
 } from 'react-router-dom';
 import Home from './Home/Home';
 import Login from './Login/Login';
+import StoreProvider from 'components/Store/Provider';
+import RoutesPrivate from 'components/Routes/Private/Private';
 
 const PagesRoot = () => (
   <Router>
-    <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/" component={Home} />
-    </Switch>
+    <StoreProvider>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <RoutesPrivate path="/" component={Home} />
+      </Switch>
+    </StoreProvider>
   </Router>
 )
 
